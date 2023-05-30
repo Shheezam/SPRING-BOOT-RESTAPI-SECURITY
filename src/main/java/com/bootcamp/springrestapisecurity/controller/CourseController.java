@@ -1,11 +1,17 @@
 package com.bootcamp.springrestapisecurity.controller;
 
-
-
 import com.bootcamp.springrestapisecurity.course.Course;
 import com.bootcamp.springrestapisecurity.service.CourseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 
 import java.util.List;
 
@@ -39,7 +45,7 @@ public class CourseController {
             courseService.deleteCourseById(id);
         }
 
-        @PutMapping("/{id}")
+        @PutMapping("/updateCourse/{id}")
         public Course updateCourse(@PathVariable Long id, @RequestBody Course course) {
             course.setId(id);
             return courseService.updateCourse(course);

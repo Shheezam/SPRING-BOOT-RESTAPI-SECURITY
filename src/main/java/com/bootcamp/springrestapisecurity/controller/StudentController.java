@@ -4,7 +4,14 @@ import com.bootcamp.springrestapisecurity.course.Course;
 import com.bootcamp.springrestapisecurity.service.StudentService;
 import com.bootcamp.springrestapisecurity.student.Student;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.util.List;
 
@@ -42,7 +49,7 @@ public class StudentController {
             return studentService.updateStudent(student);
         }
 
-        @PostMapping("/{id}/enroll")
+        @PostMapping("/enroll/{id}")
         public void enrollCourse(@PathVariable Long id, @RequestBody Course course) {
             Student student = studentService.getStudentById(id);
             if (student != null) {
@@ -50,7 +57,7 @@ public class StudentController {
             }
         }
 
-        @PostMapping("/{id}/drop")
+        @PostMapping("/drop/{id}")
         public void dropCourse(@PathVariable Long id, @RequestBody Course course) {
             Student student = studentService.getStudentById(id);
             if (student != null) {

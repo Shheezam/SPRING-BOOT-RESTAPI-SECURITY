@@ -3,7 +3,14 @@ package com.bootcamp.springrestapisecurity.student;
 
 import com.bootcamp.springrestapisecurity.course.Course;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.GenerationType;
+import javax.persistence.ManyToOne;
+import javax.persistence.CascadeType;
+import javax.persistence.JoinColumn;
 
 @Entity
 @Table(name = "student")
